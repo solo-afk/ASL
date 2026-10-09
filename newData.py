@@ -4,7 +4,7 @@ import os
 import mediapipe as mp
 
 # Target label you want to collect data for
-LABEL = 'R' 
+LABEL = 'SPACE' 
 OUTPUT_CSV = 'no_kaggle_landmarks.csv'
 
 mp_hands = mp.solutions.hands
