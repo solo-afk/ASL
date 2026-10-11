@@ -12,12 +12,13 @@ print(file['label'].value_counts())
 
 
 #feature engineering: converying absolute coordinates to relative
-print("Engineering relative coordinates")
+print("normalizing coordinates")
 
 #seperate features and labels first
 x_raw = file.drop(columns=['label']).values #converts to a numpy array
 y = file['label']
 
+#full dataset, X is converntion in ML
 x_relative = []
 
 for row in x_raw:
@@ -40,14 +41,14 @@ for row in x_raw:
 x = np.array(x_relative)
 
 # 3. Split into 80% Training data and 20% Testing data
-X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=52)
 
 print(f"Training with {len(X_train)} samples.")
 print(f"Testing with {len(X_test)} samples.")
 
 # 4. Initialize and train the Machine Learning Model
 print("\nTraining the model... hang tight...")
-model = RandomForestClassifier(n_estimators=200, random_state=42)
+model = RandomForestClassifier(n_estimators=200, random_state=52)
 model.fit(X_train, y_train)
 print("Training complete!")
 

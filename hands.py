@@ -80,14 +80,12 @@ def dynamic_movement(buf):
     if len(buf) < 30:
         return None
 
+    if check_z(buf):
+        return 'Z'
     if check_j(buf):
         return 'J'
     
-    if check_z(buf):
-        return 'Z'
-    
     return None
-
 
 
 print("Loading ml model...")
